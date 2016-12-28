@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body onload="myFunction()">
+Bing loader...
+<div id='log'></div>
+<script>
+function myFunction() {
+    var urls = [
+                "http://www.bing.com/news?q=Midwest+US+News",
+                "http://www.bing.com/news?q=West+US+News",
+                "http://www.bing.com/news?q=World+News",
+                "http://www.bing.com/news?q=Africa+News",
+                "http://www.bing.com/news?q=America+News",
+                "http://www.bing.com/news?q=Asia+Pacific+News",
+                "http://www.bing.com/news?q=Europe+News",
+                "http://www.bing.com/news?q=Middle+East+News",
+                "http://www.bing.com/news?q=Local+News",
+                "http://www.bing.com/news?q=Entertainment+News",
+                "http://www.bing.com/news?q=Movies+News",
+                "http://www.bing.com/news?q=Music+News",
+                "http://www.bing.com/news?q=Science+News",
+                "http://www.bing.com/news?q=Technology+News",
+                "http://www.bing.com/news?q=Business+News",
+                "http://www.bing.com/news?q=Politics+News",
+                "http://www.bing.com/news?q=Sports+News",
+                "http://www.bing.com/news?q=NFL+News",
+                "http://www.bing.com/news?q=NBA+News",
+                "http://www.bing.com/news?q=MLB+News",
+                "http://www.bing.com/news?q=CFB+News",
+                "http://www.bing.com/news?q=Soccer+News",
+                "http://www.bing.com/news?q=MMA+News",
+                "http://www.bing.com/news?q=NHL+News",
+                "http://www.bing.com/news?q=WWE+News",
+                "http://www.bing.com/news?q=Golf+News",
+                "http://www.bing.com/news?q=NASCAR+News",
+                "http://www.bing.com/news?q=CBB+News",
+                "http://www.bing.com/news?q=Tennis+News",
+                "http://www.bing.com/news?q=eSports+News",
+               ];
+    var i;
+    log = document.getElementById('log');
+    for (i = 0; i <= urls.length; i++) {
+      setTimeout(function(i){
+        if(i >= urls.length) {
+          setTimeout(function() {
+            log.innerHTML = log.innerHTML + "<br>all done. redirecting to bing.";
+            window.location.assign("http://www.bing.com");
+          }, 5000);
+        } else {
+          setTimeout(function(w){
+            log.innerHTML = log.innerHTML + "<br>closing window " + w;
+            w.close();
+          }, 5000,
+          window.open(urls[i]));
+          log.innerHTML = log.innerHTML + "<br> opening window #" + i + " to " + urls[i];
+        }
+      }, (i+1)*2000, i);
+    }
+}
+</script>
+
+</body>
+</html>
